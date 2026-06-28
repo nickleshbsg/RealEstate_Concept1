@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prestige Estates — Luxury Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0A1628;
+  --navy-light: #152238;
+  --gold: #B8960C;
+  --gold-light: rgba(184,150,12,0.12);
+  --gold-border: rgba(184,150,12,0.3);
+  --white: #ffffff;
+  --off-white: #F9F7F4;
+  --gray: #f4f4f4;
+  --text: #1a1a2e;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+  --transition: 0.25s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; line-height: 1.6; font-size: 15px; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: inherit; }
+.serif { font-family: 'Cormorant Garamond', serif; }
+
+/* ===== LAYOUT ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; }
+.section-sm { padding: 48px 0; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+
+/* ===== PAGE SWITCHER ===== */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ===== TYPOGRAPHY ===== */
+.eyebrow { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+h1.display { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 54px); font-weight: 400; line-height: 1.15; }
+h2.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; line-height: 1.2; }
+.lead { font-size: 16px; color: var(--muted); line-height: 1.75; }
+.gold-text { color: var(--gold); }
+.gold-line { height: 1px; background: linear-gradient(90deg, var(--gold), transparent); width: 60px; }
+
+/* ===== BUTTONS ===== */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius); font-size: 13px; font-weight: 500; letter-spacing: 0.3px; transition: var(--transition); border: none; }
+.btn-gold { background: var(--gold); color: #fff; }
+.btn-gold:hover { background: #9a7d0a; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,150,12,0.3); }
+.btn-outline-gold { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.btn-outline-gold:hover { background: var(--gold-light); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--navy-light); }
+.btn-ghost-white { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(4px); }
+.btn-ghost-white:hover { background: rgba(255,255,255,0.18); }
+.btn-wa { background: rgba(37,211,102,0.12); color: #1a8a45; border: 1px solid rgba(37,211,102,0.3); }
+.btn-wa:hover { background: rgba(37,211,102,0.2); }
+.btn-sm { padding: 8px 16px; font-size: 12px; }
+
+/* ===== HEADER ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 1000;
+  background: var(--navy);
+  padding: 0 24px;
+  transition: box-shadow var(--transition);
+}
+.site-header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 30px; height: 30px; background: var(--gold); border-radius: 5px; display: flex; align-items: center; justify-content: center; }
+.logo-icon i { color: #fff; font-size: 15px; }
+.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #fff; font-weight: 600; letter-spacing: 0.3px; }
+.nav { display: flex; gap: 28px; align-items: center; }
+.nav-link { font-size: 13px; color: rgba(255,255,255,0.65); transition: color var(--transition); letter-spacing: 0.2px; }
+.nav-link:hover, .nav-link.active { color: #fff; }
+.header-actions { display: flex; gap: 10px; align-items: center; }
+.nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 22px; }
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--navy);
+  min-height: 92vh;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 80px 24px 0;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(184,150,12,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-content { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: center; }
+.hero-text .eyebrow { margin-bottom: 16px; }
+.hero-text h1 { color: #fff; margin-bottom: 20px; }
+.hero-text h1 em { color: var(--gold); font-style: normal; }
+.hero-text p { color: rgba(255,255,255,0.55); font-size: 16px; line-height: 1.8; margin-bottom: 32px; max-width: 500px; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+.hero-stats { display: flex; gap: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+.hero-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--gold); font-weight: 600; }
+.hero-stat .label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 2px; }
+/* Hero image panel */
+.hero-visual {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  position: relative;
+}
+.hero-visual-img {
+  height: 280px;
+  background: linear-gradient(135deg, rgba(184,150,12,0.08), rgba(255,255,255,0.03));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 14px;
+}
+.hero-visual-img i { font-size: 60px; color: rgba(184,150,12,0.25); }
+.hero-visual-meta { display: flex; justify-content: space-between; align-items: center; }
+.hvm-badge { display: flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(255,255,255,0.5); }
+.hvm-badge i { color: var(--gold); font-size: 13px; }
+.hvm-price { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); }
+.hvm-label { font-size: 10px; color: rgba(255,255,255,0.3); }
+.hero-visual-tag {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--gold); color: #fff;
+  font-size: 10px; padding: 3px 10px; border-radius: 20px; font-weight: 500;
+}
+
+/* ===== SEARCH MODULE ===== */
+.search-module {
+  background: #fff;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-lg);
+  border-bottom: 3px solid var(--gold);
+}
+.search-inner { max-width: 1200px; margin: 0 auto; }
+.search-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.search-row { display: grid; grid-template-columns: repeat(5, 1fr) auto; gap: 12px; align-items: end; }
+.search-field label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 6px; }
+.search-field select, .search-field input {
+  width: 100%; padding: 10px 14px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 13px; color: var(--text); font-family: inherit;
+  background: #fff; appearance: none;
+  transition: border-color var(--transition);
+}
+.search-field select:focus, .search-field input:focus { outline: none; border-color: var(--gold); }
+
+/* ===== PROPERTY CARDS ===== */
+.prop-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+  position: relative;
+}
+.prop-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.prop-card-img {
+  height: 200px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.prop-card-img i { font-size: 56px; color: rgba(184,150,12,0.25); }
+.prop-badges { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; gap: 5px; }
+.prop-badge { font-size: 10px; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.badge-gold { background: var(--gold); color: #fff; }
+.badge-navy { background: var(--navy); color: #fff; }
+.badge-green { background: #16a34a; color: #fff; }
+.badge-rera { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); color: #fff; font-size: 10px; padding: 3px 8px; border-radius: 4px; }
+.prop-card-video { position: absolute; bottom: 10px; right: 10px; background: rgba(184,150,12,0.9); color: #fff; font-size: 10px; padding: 4px 10px; border-radius: 4px; display: flex; align-items: center; gap: 4px; }
+.prop-body { padding: 18px; }
+.prop-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+.prop-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--text); }
+.prop-price { font-size: 18px; font-weight: 500; color: var(--gold); }
+.prop-location { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; margin-bottom: 10px; }
+.prop-meta { display: flex; gap: 14px; font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+.prop-meta span { display: flex; align-items: center; gap: 4px; }
+.prop-amenities { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.amenity-tag { font-size: 11px; background: var(--gray); padding: 3px 10px; border-radius: 20px; color: var(--muted); }
+.prop-actions { display: flex; gap: 8px; }
+.prop-actions .btn { flex: 1; justify-content: center; }
+.btn-wa-sm { padding: 10px 12px; border-radius: var(--radius); background: rgba(37,211,102,0.1); color: #16a34a; border: 1px solid rgba(37,211,102,0.3); }
+.btn-wa-sm:hover { background: rgba(37,211,102,0.18); }
+
+/* ===== SECTION HEADERS ===== */
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-header .eyebrow { justify-content: center; }
+.section-header .eyebrow::before { display: none; }
+.section-header .section-title { margin-bottom: 12px; }
+.section-header .lead { max-width: 520px; margin: 0 auto; }
+
+/* ===== CATEGORY PILLS ===== */
+.category-pills { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+.pill { padding: 8px 20px; border-radius: 30px; font-size: 13px; border: 1px solid var(--border); color: var(--muted); background: #fff; transition: all var(--transition); }
+.pill.active, .pill:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+/* ===== WHY CHOOSE ===== */
+.why-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 16px; }
+.why-card { background: var(--off-white); border-radius: var(--radius-lg); padding: 24px 16px; text-align: center; border: 1px solid var(--border); transition: all var(--transition); }
+.why-card:hover { background: var(--navy); border-color: var(--navy); }
+.why-card:hover .why-icon, .why-card:hover h4, .why-card:hover p { color: #fff; }
+.why-icon { font-size: 28px; color: var(--gold); margin-bottom: 10px; }
+.why-card h4 { font-size: 13px; font-weight: 500; margin-bottom: 5px; }
+.why-card p { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+/* ===== PROJECTS ===== */
+.projects-tabs { display: flex; gap: 4px; justify-content: center; margin-bottom: 32px; }
+.projects-tab { padding: 8px 24px; border-radius: 30px; font-size: 13px; border: 1px solid var(--border); color: var(--muted); background: #fff; transition: all var(--transition); }
+.projects-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.project-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.project-img { height: 160px; background: linear-gradient(135deg, var(--navy), var(--navy-light)); display: flex; align-items: center; justify-content: center; }
+.project-img i { font-size: 44px; color: rgba(184,150,12,0.3); }
+.project-body { padding: 16px; }
+.project-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; margin-bottom: 6px; }
+.project-meta { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 12px; color: var(--muted); }
+.progress-bar { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 4px; }
+.progress-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 1s ease; }
+.progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+
+/* ===== INVESTMENT BENEFITS ===== */
+.invest-section { background: var(--navy); padding: 80px 0; }
+.invest-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+.invest-card { text-align: center; padding: 32px 20px; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); background: rgba(255,255,255,0.03); transition: all var(--transition); }
+.invest-card:hover { background: rgba(184,150,12,0.08); border-color: rgba(184,150,12,0.3); transform: translateY(-4px); }
+.invest-icon { font-size: 36px; color: var(--gold); margin-bottom: 14px; }
+.invest-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #fff; margin-bottom: 8px; }
+.invest-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+.invest-stat { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--gold); margin-bottom: 6px; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.testimonial { background: var(--off-white); border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--border); }
+.stars { display: flex; gap: 3px; color: var(--gold); margin-bottom: 12px; }
+.quote { font-family: 'Cormorant Garamond', serif; font-size: 17px; line-height: 1.6; color: var(--text); margin-bottom: 18px; font-style: italic; }
+.reviewer { display: flex; align-items: center; gap: 12px; }
+.reviewer-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 14px; font-weight: 600; }
+.reviewer-name { font-size: 14px; font-weight: 500; }
+.reviewer-meta { font-size: 11px; color: var(--muted); }
+.reviewer-badge { margin-left: auto; font-size: 10px; background: var(--gold-light); color: var(--gold); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--gold-border); }
+
+/* ===== SITE VISIT FORM ===== */
+.visit-section { background: var(--off-white); }
+.visit-form { background: #fff; border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow); max-width: 640px; margin: 0 auto; }
+.visit-form h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; margin-bottom: 6px; }
+.visit-form p { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.form-field label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
+.form-field input, .form-field select, .form-field textarea {
+  width: 100%; padding: 11px 14px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 14px; color: var(--text); font-family: inherit;
+  transition: border-color var(--transition);
+}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--gold); }
+.form-field.full { grid-column: 1/-1; }
+
+/* ===== BLOG ===== */
+.blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.blog-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow var(--transition); }
+.blog-card:hover { box-shadow: var(--shadow); }
+.blog-img { height: 160px; display: flex; align-items: center; justify-content: center; }
+.blog-body { padding: 18px; }
+.blog-cat { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; margin-bottom: 8px; }
+.blog-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; line-height: 1.3; margin-bottom: 8px; }
+.blog-meta { font-size: 11px; color: var(--muted); display: flex; gap: 12px; }
+
+/* ===== ABOUT ===== */
+.about-hero { background: var(--navy); padding: 80px 24px; }
+.about-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: #fff; font-weight: 400; }
+.about-hero h1 em { color: var(--gold); font-style: normal; }
+.team-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+.team-card { text-align: center; }
+.team-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); }
+.team-name { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+.team-role { font-size: 12px; color: var(--muted); }
+
+/* ===== CONTACT ===== */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.contact-info-card { background: var(--navy); border-radius: var(--radius-lg); padding: 36px; }
+.contact-info-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #fff; margin-bottom: 20px; }
+.contact-item { display: flex; gap: 14px; margin-bottom: 18px; }
+.contact-icon { width: 38px; height: 38px; border-radius: var(--radius); background: rgba(184,150,12,0.1); border: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-icon i { color: var(--gold); font-size: 16px; }
+.contact-item-text .label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 2px; }
+.contact-item-text .value { font-size: 14px; color: #fff; }
+.map-placeholder { height: 180px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin-top: 20px; }
+.map-placeholder i { font-size: 36px; color: rgba(184,150,12,0.3); }
+
+/* ===== ADMIN DASHBOARD ===== */
+.admin-layout { display: grid; grid-template-columns: 220px 1fr; gap: 0; min-height: 600px; }
+.admin-sidebar { background: var(--navy); padding: 20px 0; }
+.admin-sidebar-logo { display: flex; align-items: center; gap: 8px; padding: 0 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px; }
+.admin-sidebar-logo i { color: var(--gold); font-size: 18px; }
+.admin-sidebar-logo span { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #fff; }
+.admin-menu-item { display: flex; align-items: center; gap: 10px; padding: 10px 20px; font-size: 13px; color: rgba(255,255,255,0.55); transition: all var(--transition); }
+.admin-menu-item:hover, .admin-menu-item.active { color: #fff; background: rgba(255,255,255,0.06); }
+.admin-menu-item.active { border-left: 2px solid var(--gold); color: var(--gold); }
+.admin-menu-item i { font-size: 16px; }
+.admin-main { background: var(--gray); padding: 24px; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.admin-title { font-size: 20px; font-weight: 600; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 24px; }
+.kpi-card { background: #fff; border-radius: var(--radius-lg); padding: 20px; border: 1px solid var(--border); }
+.kpi-val { font-size: 26px; font-weight: 600; margin-bottom: 4px; }
+.kpi-label { font-size: 12px; color: var(--muted); }
+.kpi-delta { font-size: 12px; margin-top: 6px; display: flex; align-items: center; gap: 3px; }
+.delta-up { color: #16a34a; }
+.delta-down { color: #dc2626; }
+.admin-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.admin-panel { background: #fff; border-radius: var(--radius-lg); padding: 20px; border: 1px solid var(--border); }
+.admin-panel-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+.lead-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--gray); font-size: 13px; }
+.lead-row:last-child { border-bottom: none; }
+.lead-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; flex-shrink: 0; }
+.lead-info { flex: 1; }
+.lead-name { font-weight: 500; }
+.lead-prop { font-size: 11px; color: var(--muted); }
+.lead-status { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 500; }
+.status-new { background: rgba(59,130,246,0.1); color: #1d4ed8; }
+.status-visit { background: rgba(217,119,6,0.1); color: #b45309; }
+.status-called { background: rgba(22,163,74,0.1); color: #16a34a; }
+.funnel-bar { height: 10px; background: var(--gray); border-radius: 5px; margin: 4px 0; }
+.funnel-fill { height: 100%; border-radius: 5px; background: var(--gold); }
+.funnel-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.funnel-label { font-size: 12px; color: var(--muted); width: 90px; }
+.funnel-count { font-size: 12px; font-weight: 500; margin-left: auto; }
+.chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 80px; margin-top: 12px; }
+.chart-bar { flex: 1; background: var(--gold); border-radius: 3px 3px 0 0; opacity: 0.7; }
+.chart-bar.highlight { opacity: 1; }
+
+/* ===== PROPERTY LISTING PAGE ===== */
+.listing-layout { display: grid; grid-template-columns: 270px 1fr; gap: 24px; align-items: start; }
+.listing-sidebar { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; position: sticky; top: 88px; }
+.sidebar-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.filter-section { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.filter-section:last-child { border-bottom: none; }
+.filter-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
+.filter-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.filter-chip { font-size: 12px; padding: 5px 12px; border: 1px solid var(--border); border-radius: 20px; color: var(--muted); background: #fff; cursor: pointer; }
+.filter-chip.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.range-slider { width: 100%; accent-color: var(--gold); }
+.range-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+.listing-main-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.listing-count { font-size: 14px; color: var(--muted); }
+.listing-count strong { color: var(--text); }
+.view-toggle { display: flex; gap: 4px; }
+.view-btn { width: 34px; height: 34px; border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--muted); background: #fff; font-size: 15px; }
+.view-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.sort-select { padding: 7px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; font-family: inherit; color: var(--text); }
+.pagination { display: flex; justify-content: center; gap: 6px; margin-top: 32px; }
+.page-btn { width: 36px; height: 36px; border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); background: #fff; }
+.page-btn.active { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+/* ===== PROPERTY DETAIL ===== */
+.detail-layout { display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start; }
+.detail-gallery { margin-bottom: 24px; }
+.gallery-main { height: 340px; background: linear-gradient(135deg, var(--navy), var(--navy-light)); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; position: relative; }
+.gallery-main i { font-size: 72px; color: rgba(184,150,12,0.2); }
+.gallery-thumbs { display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; }
+.gallery-thumb { height: 60px; background: var(--gray); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; cursor: pointer; border: 2px solid transparent; transition: border-color var(--transition); }
+.gallery-thumb.active { border-color: var(--gold); }
+.gallery-thumb i { font-size: 20px; color: var(--muted); }
+.gallery-thumb.more { position: relative; }
+.gallery-thumb.more::after { content: '+5'; position: absolute; font-size: 13px; font-weight: 600; color: var(--text); background: rgba(255,255,255,0.8); inset: 0; display: flex; align-items: center; justify-content: center; border-radius: 5px; }
+.detail-info h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; margin-bottom: 6px; }
+.detail-location { font-size: 14px; color: var(--muted); margin-bottom: 16px; display: flex; align-items: center; gap: 5px; }
+.detail-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.detail-chip { font-size: 12px; padding: 5px 12px; background: rgba(10,22,40,0.06); color: var(--navy); border-radius: 5px; display: flex; align-items: center; gap: 4px; }
+.detail-section { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.detail-section:last-child { border-bottom: none; }
+.detail-section-title { font-size: 16px; font-weight: 600; margin-bottom: 14px; }
+.amenities-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.amenity-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.amenity-item i { color: var(--gold); font-size: 16px; }
+.floor-plan { height: 180px; background: var(--gray); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+.floor-plan i { font-size: 40px; color: var(--muted); }
+/* Sticky enquiry widget */
+.sticky-enquiry { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; position: sticky; top: 88px; box-shadow: var(--shadow); }
+.sticky-price { font-family: 'Cormorant Garamond', serif; font-size: 30px; color: var(--gold); margin-bottom: 4px; }
+.sticky-emi { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+.sticky-enquiry h3 { font-size: 15px; font-weight: 600; margin-bottom: 16px; color: var(--navy); }
+.enquiry-form .form-field { margin-bottom: 12px; }
+.enquiry-form .form-field label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; color: var(--muted); margin-bottom: 5px; display: block; }
+.enquiry-form .form-field input, .enquiry-form .form-field select, .enquiry-form .form-field textarea {
+  width: 100%; padding: 9px 12px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 13px; font-family: inherit;
+  transition: border-color var(--transition);
+}
+.enquiry-form .form-field input:focus, .enquiry-form .form-field select:focus { outline: none; border-color: var(--gold); }
+.enquiry-divider { text-align: center; font-size: 12px; color: var(--muted); margin: 12px 0; position: relative; }
+.enquiry-divider::before, .enquiry-divider::after { content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: var(--border); }
+.enquiry-divider::before { left: 0; }
+.enquiry-divider::after { right: 0; }
+.download-links { display: flex; gap: 8px; margin-top: 14px; }
+.download-link { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 11px; color: var(--muted); transition: all var(--transition); }
+.download-link:hover { border-color: var(--gold); color: var(--gold); }
+.similar-props { margin-top: 32px; }
+.similar-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+
+/* ===== ENQUIRY POPUP ===== */
+.popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; opacity: 0; pointer-events: none; transition: opacity var(--transition); backdrop-filter: blur(4px); }
+.popup-overlay.active { opacity: 1; pointer-events: all; }
+.enquiry-popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -48%) scale(0.97); z-index: 2001; width: 90%; max-width: 500px; background: #fff; border-radius: var(--radius-lg); box-shadow: 0 24px 60px rgba(0,0,0,0.2); opacity: 0; pointer-events: none; transition: all 0.3s ease; }
+.enquiry-popup.active { opacity: 1; pointer-events: all; transform: translate(-50%, -50%) scale(1); }
+.popup-header { background: var(--navy); padding: 20px 24px; border-radius: var(--radius-lg) var(--radius-lg) 0 0; display: flex; align-items: center; justify-content: space-between; }
+.popup-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #fff; }
+.popup-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 20px; cursor: pointer; }
+.popup-close:hover { color: #fff; }
+.popup-body { padding: 24px; }
+.popup-tabs { display: flex; gap: 2px; margin-bottom: 20px; background: var(--gray); border-radius: var(--radius); padding: 3px; }
+.popup-tab { flex: 1; text-align: center; padding: 7px; border-radius: 6px; font-size: 12px; color: var(--muted); cursor: pointer; transition: all var(--transition); }
+.popup-tab.active { background: #fff; color: var(--navy); font-weight: 500; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+.popup-respond { text-align: center; font-size: 12px; color: var(--muted); margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+.popup-respond i { color: #25D366; }
+
+/* ===== FOOTER ===== */
+.site-footer { background: var(--navy); padding: 60px 0 24px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; margin: 12px 0 16px; }
+.footer-rera { font-size: 11px; color: var(--gold); border: 1px solid rgba(184,150,12,0.2); padding: 5px 12px; border-radius: 4px; display: inline-block; }
+.footer-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 14px; font-weight: 500; }
+.footer-links { display: flex; flex-direction: column; gap: 8px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); transition: color var(--transition); }
+.footer-links a:hover { color: #fff; }
+.newsletter-form { display: flex; gap: 6px; margin-top: 10px; }
+.newsletter-form input { flex: 1; padding: 9px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); color: #fff; font-size: 12px; font-family: inherit; }
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+.newsletter-form input:focus { outline: none; border-color: var(--gold); }
+.social-links { display: flex; gap: 10px; margin-top: 14px; }
+.social-link { width: 32px; height: 32px; border-radius: var(--radius); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 15px; transition: all var(--transition); }
+.social-link:hover { background: var(--gold); color: #fff; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); }
+.footer-wa { display: flex; align-items: center; gap: 6px; background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.25); color: #25D366; padding: 7px 16px; border-radius: 20px; font-size: 12px; transition: background var(--transition); }
+.footer-wa:hover { background: rgba(37,211,102,0.18); }
+
+/* ===== FLOATING WA ===== */
+.wa-float { position: fixed; bottom: 28px; right: 28px; width: 54px; height: 54px; border-radius: 50%; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 16px rgba(37,211,102,0.4); z-index: 999; transition: transform var(--transition); cursor: pointer; }
+.wa-float:hover { transform: scale(1.1); }
+
+/* ===== PAGE HEADER ===== */
+.page-header { background: var(--navy); padding: 56px 24px; }
+.page-header-inner { max-width: 1200px; margin: 0 auto; }
+.breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+.breadcrumb i { font-size: 10px; }
+.breadcrumb a { color: var(--gold); }
+.page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 40px; color: #fff; font-weight: 400; margin-bottom: 8px; }
+.page-header p { font-size: 15px; color: rgba(255,255,255,0.5); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .why-grid { grid-template-columns: repeat(3,1fr); }
+  .invest-grid { grid-template-columns: repeat(2,1fr); }
+  .admin-layout { grid-template-columns: 1fr; }
+  .admin-sidebar { display: none; }
+  .detail-layout { grid-template-columns: 1fr; }
+  .listing-layout { grid-template-columns: 1fr; }
+  .listing-sidebar { position: static; }
+}
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .hero-stats { gap: 20px; }
+  .search-row { grid-template-columns: 1fr 1fr; }
+  .search-row > *:last-child { grid-column: 1/-1; }
+  .why-grid { grid-template-columns: repeat(2,1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .nav { display: none; }
+  .nav-toggle { display: block; }
+  .header-actions .btn:not(.btn-gold) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Floating WhatsApp -->
+<button class="wa-float" data-number="919999999999" data-msg="Hi, I am interested in your properties." aria-label="Chat on WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</button>
+
+<!-- Enquiry Popup -->
+<div class="popup-overlay" id="popup-overlay"></div>
+<div class="enquiry-popup" id="enquiry-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <div class="popup-header">
+    <h3 id="popup-title">Quick Enquiry</h3>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="font-size:11px;color:rgba(184,150,12,0.8);">★ Responds in &lt;30 min</span>
+      <button class="popup-close" data-close-popup aria-label="Close"><i class="ti ti-x"></i></button>
+    </div>
+  </div>
+  <div class="popup-body">
+    <div class="popup-tabs">
+      <div class="popup-tab active" id="ptab1">General Enquiry</div>
+      <div class="popup-tab" id="ptab2">Specific Property</div>
+      <div class="popup-tab" id="ptab3">Callback Request</div>
+    </div>
+    <form data-validate id="popup-form">
+      <div class="form-field" style="margin-bottom:12px;"><label>Full Name</label><input type="text" placeholder="Your full name" required></div>
+      <div class="form-field" style="margin-bottom:12px;"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+      <div class="form-field" style="margin-bottom:12px;"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-field" style="margin-bottom:16px;"><label>Interested In</label>
+        <select><option>Select property type</option><option>Residential Flat</option><option>Villa</option><option>Plot</option><option>Commercial</option></select>
+      </div>
+      <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;">Send Enquiry <i class="ti ti-arrow-right"></i></button>
+    </form>
+    <div class="popup-respond"><i class="ti ti-brand-whatsapp"></i> Or WhatsApp us directly for instant response</div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon"><i class="ti ti-home"></i></div>
+      <span class="logo-text">Prestige Estates</span>
+    </div>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a class="nav-link" href="#" data-page="home">Home</a>
+      <a class="nav-link" href="#" data-page="listings">Properties</a>
+      <a class="nav-link" href="#" data-page="about">About</a>
+      <a class="nav-link" href="#" data-page="blog">Blog</a>
+      <a class="nav-link" href="#" data-page="contact">Contact</a>
+      <a class="nav-link" href="#" data-page="admin" style="color:rgba(184,150,12,0.7);">Admin</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn btn-ghost-white btn-sm"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> WhatsApp</button>
+      <button class="btn btn-gold btn-sm" data-enquiry>Enquire Now</button>
+    </div>
+    <button class="nav-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div id="mobile-menu" style="display:none;background:var(--navy);padding:16px 24px;">
+  <nav style="display:flex;flex-direction:column;gap:4px;">
+    <a class="nav-link" href="#" data-page="home" style="color:rgba(255,255,255,0.65);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Home</a>
+    <a class="nav-link" href="#" data-page="listings" style="color:rgba(255,255,255,0.65);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Properties</a>
+    <a class="nav-link" href="#" data-page="about" style="color:rgba(255,255,255,0.65);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">About</a>
+    <a class="nav-link" href="#" data-page="blog" style="color:rgba(255,255,255,0.65);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Blog</a>
+    <a class="nav-link" href="#" data-page="contact" style="color:rgba(255,255,255,0.65);padding:10px 0;">Contact</a>
+  </nav>
+</div>
+
+<!-- ==================== PAGE: HOME ==================== -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero section">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="eyebrow"><i class="ti ti-certificate"></i> RERA Approved Developer</p>
+        <h1 class="display">Discover Your<br><em>Perfect Property</em></h1>
+        <p>Premium plots, flats, villas and investment opportunities across India's most sought-after locations.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn btn-gold" data-page="listings"><i class="ti ti-search"></i> View Properties</a>
+          <a href="#" class="btn btn-ghost-white" data-page="visit"><i class="ti ti-calendar"></i> Schedule Visit</a>
+          <button class="btn btn-wa"><i class="ti ti-brand-whatsapp"></i> WhatsApp</button>
+          <button class="btn btn-ghost-white" data-enquiry><i class="ti ti-mail"></i> Enquire Now</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num" data-count="22" data-suffix="+">22+</div><div class="label">Years Experience</div></div>
+          <div class="hero-stat"><div class="num" data-count="850" data-suffix="+">850+</div><div class="label">Properties Sold</div></div>
+          <div class="hero-stat"><div class="num" data-count="48">48</div><div class="label">Projects Delivered</div></div>
+          <div class="hero-stat"><div class="num" data-count="2400" data-suffix="+">2,400+</div><div class="label">Happy Families</div></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <span class="hero-visual-tag">Featured Property</span>
+        <div class="hero-visual-img"><i class="ti ti-building-skyscraper"></i></div>
+        <div class="hero-visual-meta">
+          <div>
+            <div class="hvm-badge"><i class="ti ti-map-pin"></i> Fatehabad Road, Agra</div>
+            <div class="hvm-badge" style="margin-top:3px;"><i class="ti ti-maximize"></i> 1,850 sqft &nbsp;·&nbsp; 3 BHK</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="hvm-price">₹1.25Cr</div>
+            <div class="hvm-label">Starting price</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <div class="search-module" role="search" aria-label="Property search">
+    <div class="search-inner">
+      <div class="search-label">Find Your Dream Property</div>
+      <div class="search-row">
+        <div class="search-field"><label for="s-type">Property Type</label>
+          <select id="s-type"><option>All Types</option><option>Flat/Apartment</option><option>Villa</option><option>Plot</option><option>Commercial</option></select></div>
+        <div class="search-field"><label for="s-budget">Budget</label>
+          <select id="s-budget"><option>Any Budget</option><option>Under ₹50L</option><option>₹50L – ₹1Cr</option><option>₹1Cr – ₹2Cr</option><option>Above ₹2Cr</option></select></div>
+        <div class="search-field"><label for="s-loc">Location</label>
+          <select id="s-loc"><option>All Locations</option><option>Agra Central</option><option>Fatehabad Road</option><option>Sikandra</option><option>Mathura Road</option></select></div>
+        <div class="search-field"><label for="s-bhk">BHK</label>
+          <select id="s-bhk"><option>Any BHK</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>4+ BHK</option></select></div>
+        <div class="search-field"><label for="s-area">Area (sqft)</label>
+          <select id="s-area"><option>Any Area</option><option>500–1000</option><option>1000–2000</option><option>2000–5000</option><option>5000+</option></select></div>
+        <button class="btn btn-gold" onclick="showPage('listings')"><i class="ti ti-search"></i> Search</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Properties -->
+  <section class="section" aria-label="Featured properties">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Our Portfolio</p>
+        <h2 class="section-title">Featured Properties</h2>
+        <p class="lead">Handpicked premium properties in Agra's most desirable locations.</p>
+      </div>
+      <div class="category-pills" role="tablist">
+        <button class="pill active" role="tab">All</button>
+        <button class="pill" role="tab">Plots</button>
+        <button class="pill" role="tab">Flats</button>
+        <button class="pill" role="tab">Villas</button>
+        <button class="pill" role="tab">Luxury Homes</button>
+        <button class="pill" role="tab">Commercial</button>
+      </div>
+      <div class="grid-3">
+        <!-- Card 1 -->
+        <article class="prop-card">
+          <div class="prop-card-img">
+            <i class="ti ti-building"></i>
+            <div class="prop-badges"><span class="prop-badge badge-gold">Ready to Move</span></div>
+            <span class="badge-rera">RERA ✓</span>
+            <div class="prop-card-video"><i class="ti ti-player-play"></i> 3D Tour</div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-top">
+              <div>
+                <h3 class="prop-name">Prestige Heights</h3>
+                <p class="prop-location"><i class="ti ti-map-pin"></i> Fatehabad Road, Agra</p>
+              </div>
+              <span class="prop-price">₹85L</span>
+            </div>
+            <div class="prop-meta">
+              <span><i class="ti ti-maximize"></i> 1,250 sqft</span>
+              <span><i class="ti ti-bed"></i> 2 BHK</span>
+              <span><i class="ti ti-building"></i> Floor 8</span>
+            </div>
+            <div class="prop-amenities">
+              <span class="amenity-tag">Swimming Pool</span>
+              <span class="amenity-tag">Gym</span>
+              <span class="amenity-tag">Parking</span>
+              <span class="amenity-tag">24/7 Security</span>
+            </div>
+            <div class="prop-actions">
+              <a href="#" class="btn btn-gold btn-sm" data-page="detail" style="justify-content:center;">View Details</a>
+              <button class="btn-wa-sm" aria-label="WhatsApp enquiry"><i class="ti ti-brand-whatsapp"></i></button>
+              <button class="btn btn-outline-gold btn-sm" data-enquiry>Enquire</button>
+            </div>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="prop-card" style="border-color:rgba(184,150,12,0.4);">
+          <div class="prop-card-img" style="background:linear-gradient(135deg,#1a1000,#2d1f00);">
+            <i class="ti ti-home-2"></i>
+            <div class="prop-badges">
+              <span class="prop-badge badge-navy">Luxury Villa</span>
+              <span class="prop-badge badge-gold">Featured</span>
+            </div>
+            <span class="badge-rera">RERA ✓</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-top">
+              <div>
+                <h3 class="prop-name">Golden Palms Villa</h3>
+                <p class="prop-location"><i class="ti ti-map-pin"></i> Sikandra, Agra</p>
+              </div>
+              <span class="prop-price">₹2.4Cr</span>
+            </div>
+            <div class="prop-meta">
+              <span><i class="ti ti-maximize"></i> 4,200 sqft</span>
+              <span><i class="ti ti-bed"></i> 4 BHK</span>
+              <span><i class="ti ti-trees"></i> Garden</span>
+            </div>
+            <div class="prop-amenities">
+              <span class="amenity-tag">Private Pool</span>
+              <span class="amenity-tag">Home Theatre</span>
+              <span class="amenity-tag">Smart Home</span>
+            </div>
+            <div class="prop-actions">
+              <a href="#" class="btn btn-gold btn-sm" data-page="detail" style="justify-content:center;">View Details</a>
+              <button class="btn-wa-sm" aria-label="WhatsApp enquiry"><i class="ti ti-brand-whatsapp"></i></button>
+              <button class="btn btn-outline-gold btn-sm" data-enquiry>Enquire</button>
+            </div>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="prop-card">
+          <div class="prop-card-img" style="background:linear-gradient(135deg,#0d1f12,#0a2a0a);">
+            <i class="ti ti-building-store"></i>
+            <div class="prop-badges"><span class="prop-badge badge-green">Commercial</span></div>
+            <span class="badge-rera">RERA ✓</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-top">
+              <div>
+                <h3 class="prop-name">Business Hub Sector 9</h3>
+                <p class="prop-location"><i class="ti ti-map-pin"></i> MG Road, Agra</p>
+              </div>
+              <span class="prop-price">₹1.1Cr</span>
+            </div>
+            <div class="prop-meta">
+              <span><i class="ti ti-maximize"></i> 800 sqft</span>
+              <span><i class="ti ti-chart-bar"></i> 8% ROI</span>
+            </div>
+            <div class="prop-amenities">
+              <span class="amenity-tag">Ground Floor</span>
+              <span class="amenity-tag">High Footfall</span>
+              <span class="amenity-tag">Corner Unit</span>
+            </div>
+            <div class="prop-actions">
+              <a href="#" class="btn btn-gold btn-sm" data-page="detail" style="justify-content:center;">View Details</a>
+              <button class="btn-wa-sm" aria-label="WhatsApp enquiry"><i class="ti ti-brand-whatsapp"></i></button>
+              <button class="btn btn-outline-gold btn-sm" data-enquiry>Enquire</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div style="text-align:center;margin-top:36px;">
+        <a href="#" class="btn btn-outline-gold" data-page="listings">View All Properties <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section-sm" style="background:var(--off-white);" aria-label="Why choose us">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Our Strengths</p>
+        <h2 class="section-title">Why Choose Prestige Estates</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><i class="ti ti-certificate why-icon"></i><h4>RERA Approved</h4><p>All projects registered under UP-RERA for your complete peace of mind.</p></div>
+        <div class="why-card"><i class="ti ti-shield-check why-icon"></i><h4>Trusted Developer</h4><p>22+ years of delivering premium properties on time, every time.</p></div>
+        <div class="why-card"><i class="ti ti-map-pin why-icon"></i><h4>Prime Locations</h4><p>Properties in Agra's most desirable and fast-appreciating corridors.</p></div>
+        <div class="why-card"><i class="ti ti-credit-card why-icon"></i><h4>Easy Financing</h4><p>Tie-ups with 12+ banks for home loans at competitive interest rates.</p></div>
+        <div class="why-card"><i class="ti ti-eye why-icon"></i><h4>Transparent Process</h4><p>No hidden charges. Full documentation support from booking to handover.</p></div>
+        <div class="why-card"><i class="ti ti-users why-icon"></i><h4>Expert Team</h4><p>Dedicated relationship managers for every buyer throughout your journey.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" aria-label="Projects">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Our Portfolio</p>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="projects-tabs" role="tablist">
+        <button class="projects-tab active" role="tab">Ongoing</button>
+        <button class="projects-tab" role="tab">Upcoming</button>
+        <button class="projects-tab" role="tab">Completed</button>
+      </div>
+      <div class="grid-3">
+        <div class="project-card">
+          <div class="project-img"><i class="ti ti-building-community"></i></div>
+          <div class="project-body">
+            <h3 class="project-name">Monarch Heights Phase 2</h3>
+            <div class="project-meta"><span>78 units · ₹75L – ₹1.2Cr</span><span style="color:var(--gold);">Dec 2026</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:64%;"></div></div>
+            <div class="progress-label"><span>Construction: 64%</span><span>36 units left</span></div>
+          </div>
+        </div>
+        <div class="project-card" style="border-color:rgba(184,150,12,0.3);">
+          <div class="project-img" style="background:linear-gradient(135deg,#0a100a,#152015);"><i class="ti ti-home-2"></i></div>
+          <div class="project-body">
+            <h3 class="project-name">The Royal Villas</h3>
+            <div class="project-meta"><span>24 villas · ₹2.5Cr+</span><span style="color:var(--gold);">Mar 2027</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:32%;"></div></div>
+            <div class="progress-label"><span>Foundation: 32%</span><span>18 units left</span></div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img" style="background:linear-gradient(135deg,#050a14,#0a1428);"><i class="ti ti-building-store"></i></div>
+          <div class="project-body">
+            <h3 class="project-name">Business Park Alpha</h3>
+            <div class="project-meta"><span>36 units · ₹80L–₹1.5Cr</span><span style="color:#16a34a;">Launching Soon</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:8%;background:#16a34a;"></div></div>
+            <div class="progress-label"><span>Pre-launch Phase</span><span>All units available</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment Benefits -->
+  <section class="invest-section" aria-label="Investment benefits">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:48px;">
+        <p class="eyebrow" style="color:var(--gold);justify-content:center;"><span style="background:var(--gold);display:inline-block;width:24px;height:1px;"></span> Investment Potential</p>
+        <h2 class="section-title" style="color:#fff;">Why Invest With Us</h2>
+        <p class="lead" style="color:rgba(255,255,255,0.45);">Agra's real estate market offers exceptional returns backed by infrastructure growth.</p>
+      </div>
+      <div class="invest-grid">
+        <div class="invest-card"><div class="invest-stat">8.5%</div><i class="ti ti-trending-up invest-icon"></i><h3>ROI Potential</h3><p>Annual returns of 8–14% on select commercial and residential properties.</p></div>
+        <div class="invest-card"><div class="invest-stat">6.2%</div><i class="ti ti-home-dollar invest-icon"></i><h3>Rental Yield</h3><p>Consistent rental income of 5.8–7.2% on residential properties in prime areas.</p></div>
+        <div class="invest-card"><div class="invest-stat">14.8%</div><i class="ti ti-chart-line invest-icon"></i><h3>Capital Appreciation</h3><p>Year-on-year price appreciation driven by Agra's growing infrastructure.</p></div>
+        <div class="invest-card"><i class="ti ti-road invest-icon"></i><h3>Infrastructure Growth</h3><p>Yamuna Expressway, metro expansion, and new township projects fuelling demand.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" aria-label="Testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Success Stories</p>
+        <h2 class="section-title">What Our Buyers Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+          <p class="quote">"The entire experience was seamless. Our new villa at Golden Palms exceeded every expectation. The team was transparent and guided us at every step."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">RS</div>
+            <div><div class="reviewer-name">Rajesh Sharma</div><div class="reviewer-meta">Villa Buyer · Dubai</div></div>
+            <span class="reviewer-badge">NRI</span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+          <p class="quote">"Invested in a commercial unit at Business Hub. The rental yield has been exactly as promised — 8.2% annually. Highly recommend for investors."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">PM</div>
+            <div><div class="reviewer-name">Priya Mehta</div><div class="reviewer-meta">Commercial Investor · Mumbai</div></div>
+            <span class="reviewer-badge">Investor</span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-half"></i></div>
+          <p class="quote">"Moved into Prestige Heights last year. The quality of construction, the amenities, and the after-sales support have all been outstanding."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">AK</div>
+            <div><div class="reviewer-name">Arjun Kumar</div><div class="reviewer-meta">Flat Buyer · Agra</div></div>
+            <span class="reviewer-badge">Homeowner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  <section class="section" style="background:var(--off-white);" aria-label="Blog">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Knowledge Centre</p>
+        <h2 class="section-title">Latest Insights</h2>
+      </div>
+      <div class="blog-grid">
+        <a class="blog-card" href="#" data-page="blog">
+          <div class="blog-img" style="background:linear-gradient(135deg,#0A1628,#152238);"><i class="ti ti-chart-line" style="font-size:36px;color:rgba(184,150,12,0.3);"></i></div>
+          <div class="blog-body">
+            <p class="blog-cat" style="color:var(--gold);">Investment Tips</p>
+            <h3 class="blog-title">Top 5 Areas for Property Investment in Agra 2026</h3>
+            <div class="blog-meta"><span>Jun 24, 2026</span><span>5 min read</span></div>
+          </div>
+        </a>
+        <a class="blog-card" href="#" data-page="blog">
+          <div class="blog-img" style="background:linear-gradient(135deg,#0d1f12,#0a2a0a);"><i class="ti ti-globe" style="font-size:36px;color:rgba(100,200,100,0.3);"></i></div>
+          <div class="blog-body">
+            <p class="blog-cat" style="color:#16a34a;">NRI Guide</p>
+            <h3 class="blog-title">How to Buy Property Remotely in India: A Complete NRI Guide</h3>
+            <div class="blog-meta"><span>Jun 20, 2026</span><span>8 min read</span></div>
+          </div>
+        </a>
+        <a class="blog-card" href="#" data-page="blog">
+          <div class="blog-img" style="background:linear-gradient(135deg,#1a1000,#2d1f00);"><i class="ti ti-scale" style="font-size:36px;color:rgba(184,150,12,0.3);"></i></div>
+          <div class="blog-body">
+            <p class="blog-cat" style="color:#b45309;">Legal Advice</p>
+            <h3 class="blog-title">RERA 2026 Updates: What Every Property Buyer Needs to Know</h3>
+            <div class="blog-meta"><span>Jun 18, 2026</span><span>6 min read</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Visit Form -->
+  <section class="visit-section section" aria-label="Schedule a visit">
+    <div class="container">
+      <div class="visit-form">
+        <h3>Schedule a Site Visit</h3>
+        <p>Our team will take you on a personalised tour of your chosen property.</p>
+        <form data-validate>
+          <div class="form-grid">
+            <div class="form-field"><label for="v-name">Full Name</label><input type="text" id="v-name" placeholder="Your name" required></div>
+            <div class="form-field"><label for="v-phone">Phone Number</label><input type="tel" id="v-phone" placeholder="+91 XXXXX XXXXX" required></div>
+            <div class="form-field"><label for="v-date">Preferred Date</label><input type="date" id="v-date"></div>
+            <div class="form-field"><label for="v-time">Preferred Time</label>
+              <select id="v-time"><option>9:00 AM</option><option>11:00 AM</option><option>2:00 PM</option><option>4:00 PM</option></select></div>
+            <div class="form-field"><label for="v-prop">Preferred Property</label>
+              <select id="v-prop"><option>Select a property</option><option>Prestige Heights — 2BHK</option><option>Golden Palms Villa</option><option>Business Hub</option></select></div>
+            <div class="form-field"><label for="v-email">Email (optional)</label><input type="email" id="v-email" placeholder="your@email.com"></div>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:14px;">
+            <i class="ti ti-calendar"></i> Confirm Site Visit
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end page-home -->
+
+<!-- ==================== PAGE: LISTINGS ==================== -->
+<div class="page" id="page-listings">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="#" data-page="home">Home</a><i class="ti ti-chevron-right"></i><span>Properties</span></div>
+      <h1>Property Listings</h1>
+      <p>Browse our complete portfolio of premium properties across Agra.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="listing-layout">
+        <!-- Sidebar -->
+        <aside class="listing-sidebar" aria-label="Search filters">
+          <div class="sidebar-title">Filter Properties</div>
+          <div class="filter-section">
+            <div class="filter-label">Property Type</div>
+            <div class="filter-chips">
+              <button class="filter-chip active">All</button>
+              <button class="filter-chip">Flat</button>
+              <button class="filter-chip">Villa</button>
+              <button class="filter-chip">Plot</button>
+              <button class="filter-chip">Commercial</button>
+            </div>
+          </div>
+          <div class="filter-section">
+            <div class="filter-label">Budget Range</div>
+            <input type="range" class="range-slider" min="0" max="500" value="150" aria-label="Budget range">
+            <div class="range-labels"><span>₹20L</span><span>₹5Cr</span></div>
+          </div>
+          <div class="filter-section">
+            <div class="filter-label">BHK</div>
+            <div class="filter-chips">
+              <button class="filter-chip active">Any</button>
+              <button class="filter-chip">1</button>
+              <button class="filter-chip">2</button>
+              <button class="filter-chip">3</button>
+              <button class="filter-chip">4+</button>
+            </div>
+          </div>
+          <div class="filter-section">
+            <div class="filter-label">Area (sqft)</div>
+            <input type="range" class="range-slider" min="0" max="10000" value="2000" aria-label="Area range">
+            <div class="range-labels"><span>500</span><span>10,000+</span></div>
+          </div>
+          <div class="filter-section">
+            <div class="filter-label">Location</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);"><input type="checkbox" checked> Agra Central</label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);"><input type="checkbox"> Fatehabad Road</label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);"><input type="checkbox"> Sikandra</label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);"><input type="checkbox"> Mathura Road</label>
+            </div>
+          </div>
+          <button class="btn btn-gold" style="width:100%;justify-content:center;">Apply Filters</button>
+          <button class="btn" style="width:100%;justify-content:center;margin-top:8px;color:var(--muted);">Clear All</button>
+        </aside>
+        <!-- Main -->
+        <div>
+          <div class="listing-main-header">
+            <p class="listing-count">Showing <strong>24</strong> properties</p>
+            <div style="display:flex;gap:12px;align-items:center;">
+              <select class="sort-select"><option>Sort: Relevance</option><option>Price: Low to High</option><option>Price: High to Low</option><option>Newest First</option></select>
+              <div class="view-toggle" role="group" aria-label="View mode">
+                <button class="view-btn active" aria-label="Grid view"><i class="ti ti-layout-grid"></i></button>
+                <button class="view-btn" aria-label="List view"><i class="ti ti-list"></i></button>
+                <button class="view-btn" aria-label="Map view"><i class="ti ti-map"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="grid-3">
+            <article class="prop-card">
+              <div class="prop-card-img"><i class="ti ti-building"></i><div class="prop-badges"><span class="prop-badge badge-gold">New Launch</span></div><span class="badge-rera">RERA ✓</span></div>
+              <div class="prop-body">
+                <div class="prop-top"><div><h3 class="prop-name">Sky Residences</h3><p class="prop-location"><i class="ti ti-map-pin"></i> Agra Central</p></div><span class="prop-price">₹72L</span></div>
+                <div class="prop-meta"><span><i class="ti ti-maximize"></i> 1,100 sqft</span><span><i class="ti ti-bed"></i> 2 BHK</span></div>
+                <div class="prop-amenities"><span class="amenity-tag">Club House</span><span class="amenity-tag">Gym</span></div>
+                <div class="prop-actions"><a href="#" class="btn btn-gold btn-sm" data-page="detail" style="justify-content:center;">View Details</a><button class="btn-wa-sm"><i class="ti ti-brand-whatsapp"></i></button><button class="btn btn-outline-gold btn-sm" data-enquiry>Enquire</button></div>
+              </div>
+            </article>
+            <article class="prop-card">
+              <div class="prop-card-img" style="background:linear-gradient(135deg,#0d1f12,#0a2a0a);"><i class="ti ti-home-2"></i><div class="prop-badges"><span class="prop-badge badge-gold">3 BHK</span></div></div>
+              <div class="prop-body">
+                <div class="prop-top"><div><h3 class="prop-name">Heritage Villas</h3><p class="prop-location"><i class="ti ti-map-pin"></i> Mathura Road</p></div><span class="prop-price">₹1.8Cr</span></div>
+                <div class="prop-meta"><span><i class="ti ti-maximize"></i> 2,800 sqft</span><span><i class="ti ti-bed"></i> 3 BHK</span></div>
+                <div class="prop-amenities"><span class="amenity-tag">Garden</span><span class="amenity-tag">Pool</span></div>
+                <div class="prop-actions"><a href="#" class="btn btn-gold btn-sm" data-page="detail" style="justify-content:center;">View Details</a><button class="btn-wa-sm"><i class="ti ti-brand-whatsapp"></i></button><button class="btn btn-outline-gold btn-sm" data-enquiry>Enquire</button></div>
+              </div>
+            </article>
+            <article class="prop-card">
+              <div class="prop-card-img"><i class="ti ti-map-2"></i><div class="prop-badges"><span class="prop-badge badge-navy">Plot</span></div></div>
+              <div class="prop-body">
+                <div class="prop-top"><div><h3 class="prop-name">Greenfield Plots</h3><p class="prop-location"><i class="ti ti-map-pin"></i> Sikandra</p></div><span class="prop-price">₹28L</span></div>
+                <div class="prop-meta"><span><i class="ti ti-maximize"></i> 200 sqyd</span><span><i class="ti ti-road"></i> Corner Plot</span></div>
+                <div class="prop-amenities"><span class="amenity-tag">Gated</span><span class="amenity-tag">RERA</span></div>
+                <div class="prop-actions"><a href="#" class="btn btn-gold btn-sm" data-page="detail" style="justify-content:center;">View Details</a><button class="btn-wa-sm"><i class="ti ti-brand-whatsapp"></i></button><button class="btn btn-outline-gold btn-sm" data-enquiry>Enquire</button></div>
+              </div>
+            </article>
+          </div>
+          <div class="pagination" aria-label="Pagination">
+            <button class="page-btn"><i class="ti ti-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span style="padding:0 4px;color:var(--muted);display:flex;align-items:center;">...</span>
+            <button class="page-btn">8</button>
+            <button class="page-btn"><i class="ti ti-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: DETAIL ==================== -->
+<div class="page" id="page-detail">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="#" data-page="home">Home</a><i class="ti ti-chevron-right"></i><a href="#" data-page="listings">Properties</a><i class="ti ti-chevron-right"></i><span>Prestige Heights</span></div>
+      <h1>Prestige Heights — 2 BHK</h1>
+      <p>Fatehabad Road, Agra · Floor 8 of 12</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="detail-layout">
+        <div>
+          <!-- Gallery -->
+          <div class="detail-gallery">
+            <div class="gallery-main"><i class="ti ti-building-skyscraper"></i><div style="position:absolute;top:14px;left:14px;display:flex;gap:6px;"><span class="prop-badge badge-gold">Ready to Move</span><span class="badge-rera" style="position:static;display:inline-block;">RERA ✓</span></div><div class="prop-card-video"><i class="ti ti-player-play"></i> 3D Virtual Tour</div></div>
+            <div class="gallery-thumbs">
+              <div class="gallery-thumb active"><i class="ti ti-building"></i></div>
+              <div class="gallery-thumb"><i class="ti ti-home"></i></div>
+              <div class="gallery-thumb"><i class="ti ti-swimming-pool"></i></div>
+              <div class="gallery-thumb"><i class="ti ti-dumbbell"></i></div>
+              <div class="gallery-thumb more"><i class="ti ti-photo"></i></div>
+            </div>
+          </div>
+          <!-- Info -->
+          <div class="detail-section">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              <div>
+                <h1 style="font-family:'Cormorant Garamond',serif;font-size:32px;margin-bottom:6px;">Prestige Heights</h1>
+                <p class="detail-location"><i class="ti ti-map-pin"></i> Fatehabad Road, Agra · Near Taj East Gate</p>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);">₹85,00,000</div>
+                <div style="font-size:12px;color:var(--muted);">EMI from ₹ 58,000 / month</div>
+              </div>
+            </div>
+            <div class="detail-chips">
+              <span class="detail-chip"><i class="ti ti-maximize"></i> 1,250 sqft</span>
+              <span class="detail-chip"><i class="ti ti-bed"></i> 2 Bedrooms</span>
+              <span class="detail-chip"><i class="ti ti-bath"></i> 2 Bathrooms</span>
+              <span class="detail-chip"><i class="ti ti-car"></i> 1 Parking</span>
+              <span class="detail-chip"><i class="ti ti-building"></i> Floor 8 / 12</span>
+              <span class="detail-chip"><i class="ti ti-certificate"></i> RERA Approved</span>
+            </div>
+          </div>
+          <!-- Amenities -->
+          <div class="detail-section">
+            <h2 class="detail-section-title">Amenities</h2>
+            <div class="amenities-list">
+              <div class="amenity-item"><i class="ti ti-swimming-pool"></i> Swimming Pool</div>
+              <div class="amenity-item"><i class="ti ti-dumbbell"></i> Fully Equipped Gym</div>
+              <div class="amenity-item"><i class="ti ti-car"></i> Covered Parking</div>
+              <div class="amenity-item"><i class="ti ti-shield-check"></i> 24/7 Security</div>
+              <div class="amenity-item"><i class="ti ti-leaf"></i> Landscaped Garden</div>
+              <div class="amenity-item"><i class="ti ti-device-gamepad"></i> Children's Play Area</div>
+              <div class="amenity-item"><i class="ti ti-air-conditioning"></i> Centralized AC</div>
+              <div class="amenity-item"><i class="ti ti-wifi"></i> High-Speed Internet</div>
+              <div class="amenity-item"><i class="ti ti-building-community"></i> Club House</div>
+            </div>
+          </div>
+          <!-- Floor Plan -->
+          <div class="detail-section">
+            <h2 class="detail-section-title">Floor Plan</h2>
+            <div class="floor-plan"><i class="ti ti-layout"></i></div>
+          </div>
+          <!-- EMI Calculator -->
+          <div class="detail-section">
+            <h2 class="detail-section-title">EMI Calculator</h2>
+            <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:24px;">
+              <div style="margin-bottom:16px;"><label style="font-size:12px;color:var(--muted);display:flex;justify-content:space-between;margin-bottom:6px;"><span>Loan Amount</span><span id="emi-loan-display">₹50L</span></label><input type="range" id="emi-loan" class="range-slider" min="1000000" max="20000000" value="5000000" step="100000" aria-label="Loan amount"></div>
+              <div style="margin-bottom:16px;"><label style="font-size:12px;color:var(--muted);display:flex;justify-content:space-between;margin-bottom:6px;"><span>Interest Rate</span><span id="emi-rate-display">8.5%</span></label><input type="range" id="emi-rate" class="range-slider" min="6" max="14" value="8.5" step="0.5" aria-label="Interest rate"></div>
+              <div style="margin-bottom:20px;"><label style="font-size:12px;color:var(--muted);display:flex;justify-content:space-between;margin-bottom:6px;"><span>Loan Tenure</span><span id="emi-tenure-display">20 yrs</span></label><input type="range" id="emi-tenure" class="range-slider" min="5" max="30" value="20" aria-label="Loan tenure"></div>
+              <div style="background:var(--navy);border-radius:var(--radius);padding:16px;display:flex;justify-content:space-between;align-items:center;">
+                <div><div style="font-size:12px;color:rgba(255,255,255,0.5);">Monthly EMI</div><div id="emi-result" style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);margin-top:2px;">₹43,000</div></div>
+                <button class="btn btn-gold" onclick="showPage('contact')">Get Home Loan</button>
+              </div>
+            </div>
+          </div>
+          <!-- Map -->
+          <div class="detail-section">
+            <h2 class="detail-section-title">Location</h2>
+            <div style="height:200px;background:var(--gray);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);">
+              <div style="text-align:center;"><i class="ti ti-map" style="font-size:36px;color:var(--muted);"></i><p style="font-size:13px;color:var(--muted);margin-top:8px;">Interactive map — Fatehabad Road, Agra</p></div>
+            </div>
+          </div>
+        </div>
+        <!-- Sticky Enquiry -->
+        <aside class="sticky-enquiry" aria-label="Property enquiry">
+          <div class="sticky-price">₹85,00,000</div>
+          <div class="sticky-emi">EMI from ₹58,000/month · 8.5% p.a.</div>
+          <h3>Enquire About This Property</h3>
+          <form class="enquiry-form" data-validate>
+            <div class="form-field"><label>Your Name</label><input type="text" placeholder="Full name" required></div>
+            <div class="form-field"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+            <div class="form-field"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+            <div class="form-field"><label>Message</label><textarea rows="2" placeholder="Any specific requirements?"></textarea></div>
+            <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;margin-bottom:8px;padding:12px;">Send Enquiry</button>
+            <button type="button" class="btn btn-wa" style="width:100%;justify-content:center;margin-bottom:8px;"><i class="ti ti-brand-whatsapp"></i> WhatsApp Enquiry</button>
+            <button type="button" class="btn btn-outline-gold" style="width:100%;justify-content:center;" onclick="showPage('visit')"><i class="ti ti-calendar"></i> Schedule Site Visit</button>
+          </form>
+          <div class="enquiry-divider">or</div>
+          <div class="download-links">
+            <a class="download-link" href="#"><i class="ti ti-file-download"></i> Brochure</a>
+            <a class="download-link" href="#"><i class="ti ti-file-spreadsheet"></i> Price Sheet</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: ABOUT ==================== -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <div class="container">
+      <p class="eyebrow">Our Story</p>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:48px;color:#fff;font-weight:400;margin-bottom:16px;">Building <em style="color:var(--gold);">Dreams</em><br>Since 2001</h1>
+      <p style="font-size:16px;color:rgba(255,255,255,0.5);max-width:560px;line-height:1.8;">Prestige Estates was founded with a single mission: to make premium real estate accessible, transparent, and rewarding for every buyer.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="margin-bottom:64px;">
+        <div>
+          <p class="eyebrow">Our Mission</p>
+          <h2 class="section-title">Committed to Your Property Journey</h2>
+          <p class="lead" style="margin-top:12px;">We believe buying a home is one of the most significant decisions you'll ever make. That's why we've built every aspect of our business around trust, transparency, and long-term relationships.</p>
+          <div style="margin-top:28px;display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;"><div style="width:32px;height:32px;border-radius:50%;background:var(--gold-light);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="ti ti-check" style="color:var(--gold);font-size:14px;"></i></div><p style="font-size:14px;color:var(--muted);">22+ years of delivering premium projects on schedule across Uttar Pradesh.</p></div>
+            <div style="display:flex;gap:12px;align-items:flex-start;"><div style="width:32px;height:32px;border-radius:50%;background:var(--gold-light);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="ti ti-check" style="color:var(--gold);font-size:14px;"></i></div><p style="font-size:14px;color:var(--muted);">RERA-registered with full transparency on pricing, timelines, and documentation.</p></div>
+            <div style="display:flex;gap:12px;align-items:flex-start;"><div style="width:32px;height:32px;border-radius:50%;background:var(--gold-light);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="ti ti-check" style="color:var(--gold);font-size:14px;"></i></div><p style="font-size:14px;color:var(--muted);">Dedicated NRI service desk with international payment and legal support.</p></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="invest-card" style="background:var(--off-white);border:1px solid var(--border);">
+            <div class="invest-stat" style="color:var(--gold);">22+</div>
+            <p style="font-size:13px;color:var(--muted);">Years Experience</p>
+          </div>
+          <div class="invest-card" style="background:var(--off-white);border:1px solid var(--border);">
+            <div class="invest-stat" style="color:var(--gold);">850+</div>
+            <p style="font-size:13px;color:var(--muted);">Properties Sold</p>
+          </div>
+          <div class="invest-card" style="background:var(--off-white);border:1px solid var(--border);">
+            <div class="invest-stat" style="color:var(--gold);">48</div>
+            <p style="font-size:13px;color:var(--muted);">Projects Delivered</p>
+          </div>
+          <div class="invest-card" style="background:var(--off-white);border:1px solid var(--border);">
+            <div class="invest-stat" style="color:var(--gold);">2,400+</div>
+            <p style="font-size:13px;color:var(--muted);">Happy Families</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-header">
+        <p class="eyebrow">Our Team</p>
+        <h2 class="section-title">Meet the Leadership</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-avatar">RV</div><div class="team-name">Rakesh Verma</div><div class="team-role">Founder & CEO</div></div>
+        <div class="team-card"><div class="team-avatar">SM</div><div class="team-name">Sunita Mehta</div><div class="team-role">Chief Sales Officer</div></div>
+        <div class="team-card"><div class="team-avatar">AK</div><div class="team-name">Anil Kumar</div><div class="team-role">Head of Projects</div></div>
+        <div class="team-card"><div class="team-avatar">PS</div><div class="team-name">Priya Sharma</div><div class="team-role">NRI Relations Lead</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: CONTACT ==================== -->
+<div class="page" id="page-contact">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h1>Contact Us</h1>
+      <p>Our team is available 7 days a week to assist you.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <h3>Get in Touch</h3>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="ti ti-phone"></i></div>
+            <div class="contact-item-text"><div class="label">Phone</div><div class="value">+91 98765 43210</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="ti ti-mail"></i></div>
+            <div class="contact-item-text"><div class="label">Email</div><div class="value">hello@prestigeestates.in</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
+            <div class="contact-item-text"><div class="label">Office</div><div class="value">12 MG Road, Agra — 282001, UP</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="ti ti-clock"></i></div>
+            <div class="contact-item-text"><div class="label">Hours</div><div class="value">Mon–Sat: 9 AM – 7 PM</div></div>
+          </div>
+          <div class="map-placeholder"><i class="ti ti-map"></i></div>
+        </div>
+        <div>
+          <div class="visit-form" style="box-shadow:none;padding:0;">
+            <h3 style="margin-bottom:6px;">Send Us a Message</h3>
+            <p style="margin-bottom:24px;">We'll respond within 24 hours.</p>
+            <form data-validate>
+              <div class="form-grid">
+                <div class="form-field"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
+                <div class="form-field"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+                <div class="form-field full"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+                <div class="form-field full"><label>Subject</label><select><option>General Enquiry</option><option>Property Enquiry</option><option>NRI Services</option><option>Investment Query</option></select></div>
+                <div class="form-field full"><label>Message</label><textarea rows="4" placeholder="How can we help you?"></textarea></div>
+              </div>
+              <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:14px;">Send Message <i class="ti ti-arrow-right"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: BLOG ==================== -->
+<div class="page" id="page-blog">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h1>Knowledge Centre</h1>
+      <p>Investment tips, buying guides, legal advice and market insights.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="category-pills">
+        <button class="pill active">All Articles</button>
+        <button class="pill">Investment Tips</button>
+        <button class="pill">Buying Guides</button>
+        <button class="pill">Legal Advice</button>
+        <button class="pill">Market Insights</button>
+        <button class="pill">NRI Corner</button>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card"><div class="blog-img" style="background:linear-gradient(135deg,#0A1628,#152238);"><i class="ti ti-chart-line" style="font-size:40px;color:rgba(184,150,12,0.3);"></i></div><div class="blog-body"><p class="blog-cat" style="color:var(--gold);">Investment Tips</p><h3 class="blog-title">Top 5 Areas for Property Investment in Agra 2026</h3><p style="font-size:13px;color:var(--muted);margin:8px 0;line-height:1.6;">Agra's real estate landscape is transforming rapidly. Here are the five areas offering the best returns this year.</p><div class="blog-meta"><span>Jun 24, 2026</span><span>5 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-img" style="background:linear-gradient(135deg,#0d1f12,#0a2a0a);"><i class="ti ti-globe" style="font-size:40px;color:rgba(100,200,100,0.3);"></i></div><div class="blog-body"><p class="blog-cat" style="color:#16a34a;">NRI Guide</p><h3 class="blog-title">How to Buy Property Remotely in India: A Complete NRI Guide</h3><p style="font-size:13px;color:var(--muted);margin:8px 0;line-height:1.6;">Everything an NRI needs to know about buying property in India — from FEMA compliance to property management.</p><div class="blog-meta"><span>Jun 20, 2026</span><span>8 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-img" style="background:linear-gradient(135deg,#1a1000,#2d1f00);"><i class="ti ti-scale" style="font-size:40px;color:rgba(184,150,12,0.3);"></i></div><div class="blog-body"><p class="blog-cat" style="color:#b45309;">Legal Advice</p><h3 class="blog-title">RERA 2026 Updates: What Every Property Buyer Needs to Know</h3><p style="font-size:13px;color:var(--muted);margin:8px 0;line-height:1.6;">Recent amendments to RERA significantly strengthen buyer protections. Here's a complete breakdown.</p><div class="blog-meta"><span>Jun 18, 2026</span><span>6 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-img" style="background:linear-gradient(135deg,#0d0d1f,#1a1a2e);"><i class="ti ti-home-dollar" style="font-size:40px;color:rgba(130,130,230,0.3);"></i></div><div class="blog-body"><p class="blog-cat" style="color:#6366f1;">Market Insights</p><h3 class="blog-title">Agra Real Estate Report Q2 2026: Prices, Trends and Outlook</h3><p style="font-size:13px;color:var(--muted);margin:8px 0;line-height:1.6;">A data-driven look at Agra's residential and commercial property market performance in the first half of 2026.</p><div class="blog-meta"><span>Jun 10, 2026</span><span>10 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-img" style="background:linear-gradient(135deg,#0d1218,#1a2030);"><i class="ti ti-credit-card" style="font-size:40px;color:rgba(100,160,220,0.3);"></i></div><div class="blog-body"><p class="blog-cat" style="color:#0ea5e9;">Buying Guide</p><h3 class="blog-title">Home Loan Guide 2026: How to Get the Best Rate for Your Property</h3><p style="font-size:13px;color:var(--muted);margin:8px 0;line-height:1.6;">Comparing home loan rates, eligibility criteria and tips for faster approval across top Indian banks.</p><div class="blog-meta"><span>Jun 5, 2026</span><span>7 min read</span></div></div></div>
+        <div class="blog-card"><div class="blog-img" style="background:linear-gradient(135deg,#0f1a0a,#1a2e12);"><i class="ti ti-road" style="font-size:40px;color:rgba(100,200,100,0.3);"></i></div><div class="blog-body"><p class="blog-cat" style="color:#16a34a;">Market Insights</p><h3 class="blog-title">Infrastructure Impact: How Yamuna Expressway is Reshaping Agra Property Values</h3><p style="font-size:13px;color:var(--muted);margin:8px 0;line-height:1.6;">An in-depth analysis of how new infrastructure projects are driving appreciation in Agra's real estate corridors.</p><div class="blog-meta"><span>Jun 1, 2026</span><span>6 min read</span></div></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: VISIT ==================== -->
+<div class="page" id="page-visit">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h1>Schedule a Site Visit</h1>
+      <p>Let us show you around personally. Pick a date and time that works for you.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div style="max-width:640px;margin:0 auto;">
+        <div class="visit-form">
+          <h3>Book Your Visit</h3>
+          <p>Our property advisors will meet you at the site and walk you through everything.</p>
+          <form data-validate>
+            <div class="form-grid">
+              <div class="form-field"><label for="bv-name">Full Name</label><input type="text" id="bv-name" placeholder="Your name" required></div>
+              <div class="form-field"><label for="bv-phone">Phone Number</label><input type="tel" id="bv-phone" placeholder="+91 XXXXX XXXXX" required></div>
+              <div class="form-field"><label for="bv-date">Preferred Date</label><input type="date" id="bv-date"></div>
+              <div class="form-field"><label for="bv-time">Preferred Time</label><select id="bv-time"><option>Morning (9–11 AM)</option><option>Midday (11 AM–1 PM)</option><option>Afternoon (2–4 PM)</option><option>Evening (4–6 PM)</option></select></div>
+              <div class="form-field full"><label for="bv-prop">Property of Interest</label><select id="bv-prop"><option>Select a property</option><option>Prestige Heights — 2 BHK</option><option>Prestige Heights — 3 BHK</option><option>Golden Palms Villa</option><option>Business Hub — Commercial</option><option>Greenfield Plots</option></select></div>
+              <div class="form-field full"><label>Additional Notes</label><textarea rows="3" placeholder="Any specific questions or requirements for the visit?"></textarea></div>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:14px;"><i class="ti ti-calendar-check"></i> Confirm Site Visit</button>
+          </form>
+        </div>
+        <div style="text-align:center;margin-top:20px;">
+          <p style="font-size:13px;color:var(--muted);">Or call us directly to schedule</p>
+          <a href="tel:+919876543210" class="btn btn-navy" style="margin-top:10px;"><i class="ti ti-phone"></i> +91 98765 43210</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: ADMIN ==================== -->
+<div class="page" id="page-admin">
+  <div style="background:var(--gray);min-height:100vh;padding:0;">
+    <div class="admin-layout">
+      <aside class="admin-sidebar" aria-label="Admin navigation">
+        <div class="admin-sidebar-logo">
+          <i class="ti ti-chart-bar"></i>
+          <span>Admin Panel</span>
+        </div>
+        <nav>
+          <a class="admin-menu-item active" href="#"><i class="ti ti-layout-dashboard"></i> Dashboard</a>
+          <a class="admin-menu-item" href="#"><i class="ti ti-users"></i> Leads</a>
+          <a class="admin-menu-item" href="#"><i class="ti ti-calendar"></i> Visits</a>
+          <a class="admin-menu-item" href="#"><i class="ti ti-building"></i> Properties</a>
+          <a class="admin-menu-item" href="#"><i class="ti ti-chart-line"></i> Analytics</a>
+          <a class="admin-menu-item" href="#"><i class="ti ti-settings"></i> Settings</a>
+        </nav>
+      </aside>
+      <main class="admin-main">
+        <div class="admin-header">
+          <h1 class="admin-title">Dashboard</h1>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span style="font-size:13px;color:var(--muted);">June 27, 2026</span>
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:13px;font-weight:600;">A</div>
+          </div>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card"><div class="kpi-val" style="color:var(--gold);">₹4.8Cr</div><div class="kpi-label">Revenue (MTD)</div><div class="kpi-delta delta-up"><i class="ti ti-trending-up"></i> +22% vs last month</div></div>
+          <div class="kpi-card"><div class="kpi-val">142</div><div class="kpi-label">Total Leads</div><div class="kpi-delta delta-up"><i class="ti ti-trending-up"></i> +34 this week</div></div>
+          <div class="kpi-card"><div class="kpi-val">8</div><div class="kpi-label">Visits Today</div><div class="kpi-delta" style="color:var(--muted);">3 confirmed · 5 pending</div></div>
+          <div class="kpi-card"><div class="kpi-val">27</div><div class="kpi-label">Closings (MTD)</div><div class="kpi-delta delta-up"><i class="ti ti-trending-up"></i> On track for 30</div></div>
+        </div>
+        <div class="admin-grid2">
+          <div class="admin-panel">
+            <div class="admin-panel-title"><i class="ti ti-users" style="color:var(--gold);"></i> Recent Enquiries</div>
+            <div class="lead-row"><div class="lead-avatar">RV</div><div class="lead-info"><div class="lead-name">Rahul Verma</div><div class="lead-prop">Sky Residences — 2 BHK</div></div><span class="lead-status status-new">New</span><span style="font-size:11px;color:var(--muted);">2m ago</span></div>
+            <div class="lead-row"><div class="lead-avatar" style="background:rgba(22,163,74,0.1);color:#16a34a;">PM</div><div class="lead-info"><div class="lead-name">Priya Mehta</div><div class="lead-prop">Commercial Hub — MG Road</div></div><span class="lead-status status-called">Called</span><span style="font-size:11px;color:var(--muted);">14m</span></div>
+            <div class="lead-row"><div class="lead-avatar" style="background:rgba(217,119,6,0.1);color:#d97706;">AK</div><div class="lead-info"><div class="lead-name">Arjun Kapoor</div><div class="lead-prop">Golden Palms Villa</div></div><span class="lead-status status-visit">Visit Set</span><span style="font-size:11px;color:var(--muted);">1h</span></div>
+            <div class="lead-row"><div class="lead-avatar">NS</div><div class="lead-info"><div class="lead-name">Nisha Sharma</div><div class="lead-prop">Heritage Villas — 3 BHK</div></div><span class="lead-status status-new">New</span><span style="font-size:11px;color:var(--muted);">2h</span></div>
+            <div style="text-align:center;margin-top:12px;"><button class="btn btn-outline-gold btn-sm">View All Leads</button></div>
+          </div>
+          <div class="admin-panel">
+            <div class="admin-panel-title"><i class="ti ti-filter" style="color:var(--gold);"></i> Lead Funnel</div>
+            <div class="funnel-row"><span class="funnel-label">Enquiries</span><div style="flex:1;"><div class="funnel-bar"><div class="funnel-fill" style="width:100%;"></div></div></div><span class="funnel-count">142</span></div>
+            <div class="funnel-row"><span class="funnel-label">Site Visits</span><div style="flex:1;"><div class="funnel-bar"><div class="funnel-fill" style="width:59%;"></div></div></div><span class="funnel-count">84</span></div>
+            <div class="funnel-row"><span class="funnel-label">Negotiations</span><div style="flex:1;"><div class="funnel-bar"><div class="funnel-fill" style="width:29%;"></div></div></div><span class="funnel-count">41</span></div>
+            <div class="funnel-row"><span class="funnel-label">Closings</span><div style="flex:1;"><div class="funnel-bar"><div class="funnel-fill" style="width:19%;background:#16a34a;"></div></div></div><span class="funnel-count" style="color:#16a34a;">27</span></div>
+            <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray);">
+              <div class="admin-panel-title" style="margin-bottom:8px;"><i class="ti ti-chart-bar" style="color:var(--gold);"></i> Revenue Chart</div>
+              <div class="chart-bars" aria-label="Monthly revenue chart">
+                <div class="chart-bar" style="height:45%;"></div>
+                <div class="chart-bar" style="height:60%;"></div>
+                <div class="chart-bar" style="height:52%;"></div>
+                <div class="chart-bar" style="height:75%;"></div>
+                <div class="chart-bar" style="height:65%;"></div>
+                <div class="chart-bar highlight" style="height:100%;"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:10px;color:var(--muted);"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span style="color:var(--gold);">Jun</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:16px;">
+          <div class="admin-panel">
+            <div class="admin-panel-title"><i class="ti ti-calendar" style="color:var(--gold);"></i> Upcoming Site Visits</div>
+            <div style="overflow-x:auto;">
+              <table style="width:100%;border-collapse:collapse;font-size:13px;">
+                <thead><tr style="background:var(--gray);"><th style="padding:8px 12px;text-align:left;font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;">Visitor</th><th style="padding:8px 12px;text-align:left;font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;">Property</th><th style="padding:8px 12px;text-align:left;font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;">Date & Time</th><th style="padding:8px 12px;text-align:left;font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;">Status</th></tr></thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--gray);"><td style="padding:10px 12px;">Arjun Kapoor</td><td style="padding:10px 12px;color:var(--muted);">Golden Palms Villa</td><td style="padding:10px 12px;color:var(--muted);">Jun 29, 11:00 AM</td><td style="padding:10px 12px;"><span class="lead-status status-called">Confirmed</span></td></tr>
+                  <tr style="border-bottom:1px solid var(--gray);"><td style="padding:10px 12px;">Sunita Patel</td><td style="padding:10px 12px;color:var(--muted);">Prestige Heights 3BHK</td><td style="padding:10px 12px;color:var(--muted);">Jun 30, 2:00 PM</td><td style="padding:10px 12px;"><span class="lead-status status-new">Pending</span></td></tr>
+                  <tr><td style="padding:10px 12px;">Vikram Singh</td><td style="padding:10px 12px;color:var(--muted);">Business Hub — Shop 12</td><td style="padding:10px 12px;color:var(--muted);">Jul 2, 10:00 AM</td><td style="padding:10px 12px;"><span class="lead-status status-called">Confirmed</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-icon"><i class="ti ti-home"></i></div><span class="logo-text">Prestige Estates</span></div>
+        <p>Your trusted partner for premium real estate across Uttar Pradesh since 2001.</p>
+        <span class="footer-rera">RERA Reg: UP/RERA/2001/0042</span>
+        <div class="social-links" style="margin-top:16px;">
+          <a class="social-link" href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+          <a class="social-link" href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+          <a class="social-link" href="#" aria-label="YouTube"><i class="ti ti-brand-youtube"></i></a>
+          <a class="social-link" href="#" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+        </div>
+      </div>
+      <div><p class="footer-heading">Properties</p><div class="footer-links"><a href="#" data-page="listings">Residential Plots</a><a href="#" data-page="listings">Luxury Flats</a><a href="#" data-page="listings">Villas</a><a href="#" data-page="listings">Commercial</a></div></div>
+      <div><p class="footer-heading">Company</p><div class="footer-links"><a href="#" data-page="about">About Us</a><a href="#" data-page="blog">Blog</a><a href="#" data-page="visit">Schedule Visit</a><a href="#" data-page="contact">Contact</a><a href="#" data-page="admin">Admin</a></div></div>
+      <div>
+        <p class="footer-heading">Newsletter</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;margin-bottom:10px;">Get property alerts and market updates.</p>
+        <div class="newsletter-form"><input type="email" placeholder="Email address"><button class="btn btn-gold btn-sm">Subscribe</button></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Prestige Estates Pvt. Ltd. All rights reserved.</p>
+      <a class="footer-wa" href="#"><i class="ti ti-brand-whatsapp"></i> Chat on WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Page navigation system
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + id);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.querySelectorAll('.nav-link').forEach(l => {
+    l.classList.toggle('active', l.dataset.page === id);
+  });
+  document.getElementById('mobile-menu').style.display = 'none';
+}
+
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('[data-page]');
+  if (link) {
+    e.preventDefault();
+    showPage(link.dataset.page);
+  }
+});
+
+// Mobile menu
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  const m = document.getElementById('mobile-menu');
+  m.style.display = m.style.display === 'block' ? 'none' : 'block';
+});
+
+// Category pills
+document.querySelectorAll('.pill, .filter-chip, .projects-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const group = btn.closest('.category-pills, .filter-chips, .projects-tabs');
+    if (group) group.querySelectorAll('.pill, .filter-chip, .projects-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// View toggle
+document.querySelectorAll('.view-toggle .view-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.view-toggle').querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Sticky header
+window.addEventListener('scroll', () => {
+  document.querySelector('.site-header').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Enquiry popup
+const popup = document.getElementById('enquiry-popup');
+const overlay = document.getElementById('popup-overlay');
+document.querySelectorAll('[data-enquiry]').forEach(btn => {
+  btn.addEventListener('click', e => { e.preventDefault(); popup.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; });
+});
+document.querySelectorAll('[data-close-popup]').forEach(btn => btn.addEventListener('click', closeP));
+overlay.addEventListener('click', closeP);
+function closeP() { popup.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeP(); });
+
+// Popup tabs
+['ptab1','ptab2','ptab3'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('click', () => {
+    document.querySelectorAll('.popup-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  });
+});
+
+// EMI Calc
+function updateEMI() {
+  const loan = parseFloat(document.getElementById('emi-loan').value) || 5000000;
+  const rate = parseFloat(document.getElementById('emi-rate').value) || 8.5;
+  const tenure = parseFloat(document.getElementById('emi-tenure').value) || 20;
+  const r = rate / 12 / 100, n = tenure * 12;
+  const emi = Math.round(loan * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1));
+  document.getElementById('emi-result').textContent = '₹' + emi.toLocaleString('en-IN');
+  document.getElementById('emi-loan-display').textContent = '₹' + Math.round(loan/100000) + 'L';
+  document.getElementById('emi-rate-display').textContent = rate + '%';
+  document.getElementById('emi-tenure-display').textContent = tenure + ' yrs';
+}
+['emi-loan','emi-rate','emi-tenure'].forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('input', updateEMI); });
+updateEMI();
+
+// Form handling
+document.querySelectorAll('form[data-validate]').forEach(form => {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type=submit]');
+    if (btn) { const orig = btn.innerHTML; btn.innerHTML = '<i class="ti ti-check"></i> Submitted! We\'ll call you soon.'; btn.disabled = true; setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 4000); }
+  });
+});
+
+// WhatsApp
+document.querySelectorAll('.wa-float, .footer-wa, .btn-wa, .btn-wa-sm').forEach(btn => {
+  btn.addEventListener('click', e => {
+    if (btn.tagName === 'A' && btn.href !== '#') return;
+    e.preventDefault();
+    window.open('https://wa.me/919999999999?text=' + encodeURIComponent('Hi, I am interested in your properties. Please share details.'), '_blank');
+  });
+});
+
+// Count-up on scroll
+const countEls = document.querySelectorAll('[data-count]');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    let current = 0; const step = Math.max(1, Math.ceil(target/40));
+    const timer = setInterval(() => { current = Math.min(current+step,target); el.textContent = current.toLocaleString('en-IN')+suffix; if(current>=target) clearInterval(timer); }, 30);
+    obs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+countEls.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
